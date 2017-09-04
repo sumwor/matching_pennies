@@ -1,0 +1,481 @@
+Scenario - phase2_matchingPennies_algorithm0
+Logfile written - 08/24/2017 13:54:34
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+test	0	Manual	08/24/2017 13:45:03	-9964	-9964
+test	1	Sound	0	-9799	0	2			0		other	0
+test	1	Response	2	1326	11125	1
+test	3	Nothing	10	2402	0	1			0		other	0
+test	4	Nothing	22	21480	0	1			0		other	0
+test	5	Sound	19	37153	0	2			0		other	0
+test	6	Sound	0	61941	0	2			0		other	0
+test	6	Response	3	74844	12903	1
+test	7	Nothing	22	74962	0	1			0		other	0
+test	8	Sound	19	90580	0	2			0		other	0
+test	9	Sound	0	111242	0	2			0		other	0
+test	9	Response	2	116523	5281	1
+test	10	Nothing	22	116659	0	1			0		other	0
+test	11	Sound	19	129497	0	2			0		other	0
+test	12	Sound	0	157583	0	2			0		other	0
+test	12	Response	3	161481	3898	2
+test	14	Nothing	10	162532	0	1			0		other	0
+test	15	Nothing	22	181609	0	1			0		other	0
+test	16	Sound	19	194818	0	2			0		other	0
+test	16	Response	3	199000	4182	1
+test	18	Sound	0	217501	0	2			0		other	0
+test	18	Response	3	222119	4618	2
+test	20	Nothing	10	223170	0	1			0		other	0
+test	21	Nothing	22	242304	0	1			0		other	0
+test	22	Sound	19	255595	0	2			0		other	0
+test	23	Sound	0	281234	0	2			0		other	0
+test	23	Response	2	284597	3363	2
+test	25	Nothing	10	285671	0	1			0		other	0
+test	26	Nothing	22	304849	0	1			0		other	0
+test	27	Sound	19	320662	0	2			0		other	0
+test	28	Sound	0	347692	0	2			0		other	0
+test	28	Response	3	350915	3223	2
+test	29	Nothing	22	351029	0	1			0		other	0
+test	29	Response	3	359155	8126	1
+test	30	Sound	19	365447	0	2			0		other	0
+test	31	Sound	0	386217	0	2			0		other	0
+test	31	Response	2	398034	11817	1
+test	32	Nothing	22	398205	0	1			0		other	0
+test	32	Response	2	406354	8149	1
+test	33	Sound	19	410229	0	2			0		other	0
+test	34	Sound	0	439001	0	3			0		other	0
+test	34	Response	3	447312	8311	2
+test	36	Nothing	10	448361	0	1			0		other	0
+test	37	Nothing	22	467584	0	1			0		other	0
+test	38	Sound	19	480396	0	2			0		other	0
+test	40	Sound	0	501527	0	2			0		other	0
+test	40	Response	2	505391	3864	1
+test	42	Nothing	10	506465	0	1			0		other	0
+test	43	Nothing	22	525573	0	1			0		other	0
+test	44	Sound	19	541100	0	2			0		other	0
+test	45	Sound	0	568120	0	2			0		other	0
+test	45	Response	2	571788	3668	2
+test	47	Nothing	10	572839	0	1			0		other	0
+test	48	Nothing	22	591931	0	1			0		other	0
+test	49	Sound	19	608058	0	2			0		other	0
+test	50	Sound	0	631881	0	2			0		other	0
+test	50	Response	2	635307	3426	1
+test	52	Nothing	10	636360	0	1			0		other	0
+test	53	Nothing	22	655435	0	1			0		other	0
+test	54	Sound	19	671955	0	2			0		other	0
+test	55	Sound	0	697943	0	3			0		other	0
+test	55	Response	2	705544	7601	2
+test	56	Nothing	22	705696	0	1			0		other	0
+test	57	Sound	19	723585	0	2			0		other	0
+test	58	Sound	0	752334	0	2			0		other	0
+test	58	Response	2	759303	6969	1
+test	60	Nothing	10	760377	0	1			0		other	0
+test	61	Nothing	22	779456	0	1			0		other	0
+test	62	Sound	19	796875	0	2			0		other	0
+test	64	Sound	0	823026	0	2			0		other	0
+test	64	Response	3	826581	3555	1
+test	66	Nothing	10	827654	0	1			0		other	0
+test	67	Nothing	22	846785	0	1			0		other	0
+test	68	Sound	19	861008	0	2			0		other	0
+test	69	Sound	0	883278	0	2			0		other	0
+test	69	Response	2	889939	6661	1
+test	71	Nothing	10	891013	0	1			0		other	0
+test	72	Nothing	22	910134	0	1			0		other	0
+test	73	Sound	19	927378	0	2			0		other	0
+test	74	Sound	0	954249	0	3			0		other	0
+test	74	Response	3	958257	4008	1
+test	76	Nothing	10	959332	0	1			0		other	0
+test	77	Nothing	22	978475	0	1			0		other	0
+test	78	Sound	19	997336	0	2			0		other	0
+test	79	Sound	0	1020006	0	2			0		other	0
+test	79	Response	2	1024975	4969	1
+test	80	Nothing	22	1025141	0	1			0		other	0
+test	81	Sound	19	1041819	0	2			0		other	0
+test	82	Sound	0	1067387	0	2			0		other	0
+test	82	Response	3	1074493	7106	1
+test	84	Nothing	10	1075541	0	1			0		other	0
+test	85	Nothing	22	1094632	0	1			0		other	0
+test	86	Sound	19	1107780	0	2			0		other	0
+test	88	Sound	0	1136022	0	2			0		other	0
+test	88	Response	2	1140171	4149	1
+test	90	Nothing	10	1141235	0	1			0		other	0
+test	91	Nothing	22	1160356	0	1			0		other	0
+test	92	Sound	19	1174476	0	2			0		other	0
+test	93	Sound	0	1195676	0	2			0		other	0
+test	93	Response	3	1199449	3773	2
+test	94	Nothing	22	1199614	0	1			0		other	0
+test	95	Sound	19	1214757	0	2			0		other	0
+test	96	Sound	0	1235806	0	2			0		other	0
+test	96	Response	2	1238968	3162	1
+test	97	Nothing	22	1239082	0	1			0		other	0
+test	98	Sound	19	1253027	0	2			0		other	0
+test	99	Sound	0	1281608	0	2			0		other	0
+test	99	Response	3	1285126	3518	2
+test	101	Nothing	10	1286177	0	1			0		other	0
+test	102	Nothing	22	1305310	0	1			0		other	0
+test	103	Sound	19	1322689	0	2			0		other	0
+test	104	Sound	0	1343839	0	2			0		other	0
+test	104	Response	2	1346965	3126	1
+test	105	Nothing	22	1347065	0	1			0		other	0
+test	106	Sound	19	1359632	0	2			0		other	0
+test	108	Sound	0	1384665	0	2			0		other	0
+test	108	Response	3	1387363	2698	2
+test	110	Nothing	10	1388414	0	1			0		other	0
+test	111	Nothing	22	1407566	0	1			0		other	0
+test	112	Sound	19	1421589	0	2			0		other	0
+test	113	Sound	0	1443238	0	2			0		other	0
+test	113	Response	3	1446961	3723	2
+test	114	Nothing	22	1447083	0	1			0		other	0
+test	115	Sound	19	1465210	0	2			0		other	0
+test	116	Sound	0	1488849	0	2			0		other	0
+test	116	Response	2	1493840	4991	1
+test	118	Nothing	10	1494891	0	1			0		other	0
+test	119	Nothing	22	1513998	0	1			0		other	0
+test	120	Sound	19	1532295	0	2			0		other	0
+test	121	Sound	0	1556889	0	2			0		other	0
+test	121	Response	3	1559998	3109	1
+test	122	Nothing	22	1560178	0	1			0		other	0
+test	123	Sound	19	1575988	0	2			0		other	0
+test	124	Sound	0	1599001	0	2			0		other	0
+test	124	Response	3	1604477	5476	1
+test	125	Nothing	22	1604544	0	1			0		other	0
+test	126	Sound	19	1621127	0	2			0		other	0
+test	128	Sound	0	1646968	0	2			0		other	0
+test	128	Response	2	1650475	3507	2
+test	130	Nothing	10	1651526	0	1			0		other	0
+test	131	Nothing	22	1670604	0	1			0		other	0
+test	132	Sound	19	1689682	0	2			0		other	0
+test	133	Sound	0	1712612	0	2			0		other	0
+test	133	Response	3	1715273	2661	2
+test	135	Nothing	10	1716350	0	1			0		other	0
+test	136	Nothing	22	1735441	0	1			0		other	0
+test	137	Sound	19	1754375	0	2			0		other	0
+test	138	Sound	0	1780365	0	2			0		other	0
+test	138	Response	3	1782871	2506	1
+test	140	Nothing	10	1783919	0	1			0		other	0
+test	141	Nothing	22	1802972	0	1			0		other	0
+test	142	Sound	19	1822734	0	2			0		other	0
+test	143	Sound	0	1851002	0	2			0		other	0
+test	143	Response	2	1856149	5147	1
+test	143	Response	3	1856149	5147	1
+test	144	Nothing	22	1856244	0	1			0		other	0
+test	145	Sound	19	1867198	0	2			0		other	0
+test	146	Sound	0	1893296	0	3			0		other	0
+test	146	Response	2	1897268	3972	1
+test	148	Nothing	10	1898320	0	1			0		other	0
+test	149	Nothing	22	1917450	0	1			0		other	0
+test	150	Sound	19	1936120	0	2			0		other	0
+test	152	Sound	0	1959224	0	2			0		other	0
+test	152	Response	3	1962786	3562	1
+test	154	Nothing	10	1963860	0	1			0		other	0
+test	155	Nothing	22	1982952	0	1			0		other	0
+test	156	Sound	19	1999923	0	2			0		other	0
+test	157	Sound	0	2024405	0	2			0		other	0
+test	157	Response	2	2027983	3578	2
+test	158	Nothing	22	2028113	0	1			0		other	0
+test	158	Response	2	2029983	1870	2
+test	158	Response	2	2031583	3470	2
+test	158	Response	2	2035503	7390	1
+test	158	Response	2	2037183	9070	2
+test	159	Sound	19	2039921	0	2			0		other	0
+test	160	Sound	0	2061969	0	2			0		other	0
+test	160	Response	3	2065822	3853	2
+test	162	Nothing	10	2066871	0	1			0		other	0
+test	163	Nothing	22	2086000	0	1			0		other	0
+test	164	Sound	19	2103023	0	2			0		other	0
+test	164	Response	3	2107661	4638	1
+test	165	Sound	0	2126302	0	2			0		other	0
+test	165	Response	2	2136620	10318	2
+test	166	Nothing	22	2136754	0	1			0		other	0
+test	167	Sound	19	2153849	0	2			0		other	0
+test	168	Sound	0	2174578	0	2			0		other	0
+test	168	Response	3	2188939	14361	1
+test	170	Nothing	10	2189988	0	1			0		other	0
+test	171	Nothing	22	2209124	0	1			0		other	0
+test	172	Sound	19	2224803	0	2			0		other	0
+test	174	Sound	0	2247438	0	2			0		other	0
+test	174	Response	2	2255816	8378	2
+test	176	Nothing	10	2256892	0	1			0		other	0
+test	177	Nothing	22	2275985	0	1			0		other	0
+test	178	Sound	19	2292037	0	2			0		other	0
+test	178	Response	3	2293015	978	2
+test	179	Sound	0	2315506	0	2			0		other	0
+test	179	Response	2	2321974	6468	2
+test	180	Nothing	22	2322091	0	1			0		other	0
+test	181	Sound	19	2337069	0	1			0		other	0
+test	182	Sound	0	2362227	0	2			0		other	0
+test	182	Response	3	2367413	5186	1
+test	184	Nothing	10	2368464	0	1			0		other	0
+test	185	Nothing	22	2387569	0	1			0		other	0
+test	186	Sound	19	2402063	0	3			0		other	0
+test	186	Response	2	2412692	10629	1
+test	187	Sound	0	2423273	0	2			0		other	0
+test	187	Response	3	2431571	8298	1
+test	189	Nothing	10	2432623	0	1			0		other	0
+test	190	Nothing	22	2451686	0	1			0		other	0
+test	191	Sound	19	2463452	0	2			0		other	0
+test	191	Response	2	2470450	6998	1
+test	192	Sound	0	2486611	0	2			0		other	0
+test	192	Response	2	2496849	10238	1
+test	194	Nothing	10	2497925	0	1			0		other	0
+test	195	Nothing	22	2517062	0	1			0		other	0
+test	196	Sound	19	2536790	0	2			0		other	0
+test	198	Sound	0	2558351	0	2			0		other	0
+test	198	Response	3	2568687	10336	1
+test	200	Nothing	10	2569755	0	1			0		other	0
+test	201	Nothing	22	2588855	0	1			0		other	0
+test	202	Sound	19	2607874	0	2			0		other	0
+test	203	Sound	0	2629242	0	3			0		other	0
+test	203	Response	2	2636925	7683	1
+test	204	Nothing	22	2637019	0	1			0		other	0
+test	205	Sound	19	2648483	0	2			0		other	0
+test	206	Sound	0	2672702	0	3			0		other	0
+test	206	Response	3	2679723	7021	2
+test	208	Nothing	10	2680773	0	1			0		other	0
+test	209	Nothing	22	2699961	0	1			0		other	0
+test	210	Sound	19	2715453	0	2			0		other	0
+test	211	Sound	0	2737873	0	2			0		other	0
+test	211	Response	2	2741961	4088	2
+test	212	Nothing	22	2742065	0	1			0		other	0
+test	213	Sound	19	2753943	0	2			0		other	0
+test	214	Sound	0	2781611	0	3			0		other	0
+test	214	Response	2	2786440	4829	1
+test	216	Nothing	10	2787517	0	1			0		other	0
+test	217	Nothing	22	2806578	0	1			0		other	0
+test	218	Sound	19	2824905	0	2			0		other	0
+test	220	Sound	0	2854784	0	2			0		other	0
+test	220	Response	3	2862118	7334	1
+test	222	Nothing	10	2863192	0	1			0		other	0
+test	223	Nothing	22	2882283	0	1			0		other	0
+test	224	Sound	19	2897195	0	2			0		other	0
+test	225	Sound	0	2925764	0	3			0		other	0
+test	225	Response	3	2933716	7952	1
+test	226	Nothing	22	2933807	0	1			0		other	0
+test	226	Response	2	2943155	9348	2
+test	227	Sound	19	2952362	0	2			0		other	0
+test	228	Sound	0	2976281	0	2			0		other	0
+test	228	Response	2	2985954	9673	1
+test	230	Nothing	10	2987005	0	1			0		other	0
+test	231	Nothing	22	3006083	0	1			0		other	0
+test	232	Sound	19	3019956	0	2			0		other	0
+test	233	Sound	0	3045616	0	2			0		other	0
+test	233	Response	3	3050352	4736	1
+test	235	Nothing	10	3051429	0	1			0		other	0
+test	236	Nothing	22	3070513	0	1			0		other	0
+test	237	Sound	19	3080892	0	2			0		other	0
+test	238	Sound	0	3107861	0	2			0		other	0
+test	238	Response	2	3112910	5049	1
+test	239	Nothing	22	3113091	0	1			0		other	0
+test	239	Response	3	3119390	6299	1
+test	240	Sound	19	3131283	0	2			0		other	0
+test	242	Sound	0	3160813	0	2			0		other	0
+test	242	Response	3	3164988	4175	2
+test	243	Nothing	22	3165116	0	1			0		other	0
+test	244	Sound	19	3180084	0	2			0		other	0
+test	245	Sound	0	3208344	0	2			0		other	0
+test	245	Response	2	3215707	7363	1
+test	247	Nothing	10	3216758	0	1			0		other	0
+test	248	Nothing	22	3235865	0	1			0		other	0
+test	249	Sound	19	3247984	0	2			0		other	0
+test	250	Sound	0	3277664	0	2			0		other	0
+test	250	Response	3	3281545	3881	1
+test	251	Nothing	22	3281674	0	1			0		other	0
+test	252	Sound	19	3295189	0	2			0		other	0
+test	253	Sound	0	3324160	0	2			0		other	0
+test	253	Response	2	3328343	4183	2
+test	254	Nothing	22	3328472	0	1			0		other	0
+test	255	Sound	19	3341094	0	2			0		other	0
+test	256	Sound	0	3361231	0	2			0		other	0
+test	256	Response	3	3365942	4711	2
+test	258	Nothing	10	3366993	0	1			0		other	0
+test	259	Nothing	22	3386108	0	1			0		other	0
+test	260	Sound	19	3401624	0	2			0		other	0
+test	262	Sound	0	3431620	0	2			0		other	0
+test	262	Response	2	3437140	5520	1
+test	263	Nothing	22	3437244	0	1			0		other	0
+test	264	Sound	19	3453302	0	1			0		other	0
+test	265	Sound	0	3475601	0	3			0		other	0
+test	265	Response	3	3479859	4258	1
+test	267	Nothing	10	3480909	0	1			0		other	0
+test	268	Nothing	22	3500024	0	1			0		other	0
+test	269	Sound	19	3513178	0	2			0		other	0
+test	270	Sound	0	3542836	0	2			0		other	0
+test	270	Response	3	3547537	4701	1
+test	272	Nothing	10	3548589	0	1			0		other	0
+test	273	Nothing	22	3567674	0	1			0		other	0
+test	274	Sound	19	3584792	0	2			0		other	0
+test	275	Sound	0	3612301	0	2			0		other	0
+test	275	Response	2	3616654	4353	2
+test	276	Nothing	22	3616760	0	1			0		other	0
+test	276	Response	3	3621854	5094	2
+test	277	Sound	19	3632653	0	2			0		other	0
+test	278	Sound	0	3662594	0	2			0		other	0
+test	278	Response	2	3667610	5016	4
+test	280	Nothing	10	3668715	0	1			0		other	0
+test	281	Nothing	22	3687785	0	1			0		other	0
+test	282	Sound	19	3700174	0	2			0		other	0
+test	284	Sound	0	3729669	0	3			0		other	0
+test	284	Response	3	3733451	3782	1
+test	285	Nothing	22	3733580	0	1			0		other	0
+test	286	Sound	19	3753386	0	2			0		other	0
+test	287	Sound	0	3777826	0	2			0		other	0
+test	287	Response	2	3781689	3863	2
+test	288	Nothing	22	3781810	0	1			0		other	0
+test	289	Sound	19	3799396	0	2			0		other	0
+test	290	Sound	0	3827974	0	2			0		other	0
+test	290	Response	3	3831768	3794	1
+test	291	Nothing	22	3831942	0	1			0		other	0
+test	292	Sound	19	3848444	0	2			0		other	0
+test	293	Sound	0	3873443	0	2			0		other	0
+test	293	Response	2	3878806	5363	2
+test	294	Nothing	22	3878973	0	1			0		other	0
+test	295	Sound	19	3898809	0	2			0		other	0
+test	296	Sound	0	3921910	0	2			0		other	0
+test	296	Response	3	3927285	5375	1
+test	297	Nothing	22	3927553	0	1			0		other	0
+test	298	Sound	19	3943129	0	2			0		other	0
+test	300	Sound	0	3965905	0	2			0		other	0
+test	300	Response	2	3971043	5138	2
+test	301	Response	3	3971523	446	2
+test	302	Nothing	10	3972094	0	1			0		other	0
+test	303	Nothing	22	3991178	0	1			0		other	0
+test	304	Sound	19	4004966	0	2			0		other	0
+test	305	Sound	0	4030985	0	3			0		other	0
+test	305	Response	3	4037921	6936	2
+test	306	Nothing	22	4038020	0	1			0		other	0
+test	307	Sound	19	4052637	0	2			0		other	0
+test	308	Sound	0	4077327	0	2			0		other	0
+test	308	Response	2	4089200	11873	1
+test	309	Nothing	22	4089325	0	1			0		other	0
+test	309	Response	3	4089356	31	5
+test	310	Sound	19	4104505	0	2			0		other	0
+test	311	Sound	0	4125512	0	3			0		other	0
+test	311	Response	2	4129999	4487	1
+test	312	Nothing	22	4130082	0	1			0		other	0
+test	313	Sound	19	4149056	0	2			0		other	0
+test	314	Sound	0	4169206	0	2			0		other	0
+test	314	Response	3	4173277	4071	2
+test	316	Nothing	10	4174329	0	1			0		other	0
+test	317	Nothing	22	4193443	0	1			0		other	0
+test	318	Sound	19	4209683	0	2			0		other	0
+test	320	Sound	0	4238006	0	2			0		other	0
+test	320	Response	2	4242635	4629	2
+test	322	Nothing	10	4243711	0	1			0		other	0
+test	323	Nothing	22	4262798	0	1			0		other	0
+test	324	Sound	19	4279883	0	2			0		other	0
+test	324	Response	2	4297433	17550	2
+test	325	Sound	0	4304611	0	2			0		other	0
+test	325	Response	2	4308073	3462	1
+test	327	Nothing	10	4309124	0	1			0		other	0
+test	328	Nothing	22	4328231	0	1			0		other	0
+test	329	Sound	19	4346010	0	2			0		other	0
+test	330	Sound	0	4375610	0	2			0		other	0
+test	330	Response	3	4380071	4461	1
+test	332	Nothing	10	4381147	0	1			0		other	0
+test	333	Nothing	22	4400310	0	1			0		other	0
+test	334	Sound	19	4418878	0	2			0		other	0
+test	335	Sound	0	4446936	0	3			0		other	0
+test	335	Response	2	4451509	4573	1
+test	337	Nothing	10	4452583	0	1			0		other	0
+test	338	Nothing	22	4471678	0	1			0		other	0
+test	339	Sound	19	4482001	0	2			0		other	0
+test	340	Sound	0	4508191	0	2			0		other	0
+test	340	Response	2	4511827	3636	1
+test	341	Nothing	22	4511965	0	1			0		other	0
+test	342	Sound	19	4528566	0	2			0		other	0
+test	344	Sound	0	4557264	0	2			0		other	0
+test	344	Response	2	4561345	4081	2
+test	346	Nothing	10	4562421	0	1			0		other	0
+test	347	Nothing	22	4581491	0	1			0		other	0
+test	348	Sound	19	4591933	0	2			0		other	0
+test	349	Sound	0	4618352	0	2			0		other	0
+test	349	Response	3	4623823	5471	2
+test	350	Nothing	22	4623942	0	1			0		other	0
+test	351	Sound	19	4641526	0	2			0		other	0
+test	352	Sound	0	4665376	0	2			0		other	0
+test	352	Response	2	4673262	7886	1
+test	353	Nothing	22	4673418	0	1			0		other	0
+test	354	Sound	19	4689289	0	2			0		other	0
+test	355	Sound	0	4715468	0	2			0		other	0
+test	355	Response	3	4723660	8192	2
+test	356	Nothing	22	4723815	0	1			0		other	0
+test	357	Sound	19	4736778	0	2			0		other	0
+test	358	Sound	0	4760778	0	2			0		other	0
+test	358	Response	2	4764779	4001	1
+test	360	Nothing	10	4765822	0	1			0		other	0
+test	361	Nothing	22	4784910	0	1			0		other	0
+test	362	Sound	19	4802231	0	2			0		other	0
+test	364	Sound	0	4831365	0	3			0		other	0
+test	364	Response	3	4834777	3412	1
+test	365	Nothing	22	4834868	0	1			0		other	0
+test	366	Sound	19	4846785	0	2			0		other	0
+test	367	Sound	0	4873917	0	2			0		other	0
+test	367	Response	2	4878615	4698	2
+test	368	Nothing	22	4878737	0	1			0		other	0
+test	369	Sound	19	4894832	0	2			0		other	0
+test	370	Sound	0	4923863	0	2			0		other	0
+test	370	Response	3	4929494	5631	1
+test	371	Nothing	22	4929634	0	1			0		other	0
+test	372	Sound	19	4947714	0	2			0		other	0
+test	373	Sound	0	4972966	0	2			0		other	0
+test	373	Response	2	4976452	3486	2
+test	374	Nothing	22	4976635	0	1			0		other	0
+test	375	Sound	19	4989374	0	2			0		other	0
+test	376	Sound	0	5013535	0	2			0		other	0
+test	376	Response	3	5017651	4116	2
+test	378	Nothing	10	5018698	0	1			0		other	0
+test	379	Nothing	22	5037784	0	1			0		other	0
+test	380	Sound	19	5053954	0	3			0		other	0
+test	382	Sound	0	5083025	0	2			0		other	0
+test	382	Response	3	5087329	4304	1
+test	384	Nothing	10	5088373	0	1			0		other	0
+test	385	Nothing	22	5107502	0	1			0		other	0
+test	386	Sound	19	5117643	0	2			0		other	0
+test	387	Sound	0	5144324	0	2			0		other	0
+test	387	Response	2	5151167	6843	1
+test	389	Nothing	10	5152240	0	1			0		other	0
+test	390	Nothing	22	5171325	0	1			0		other	0
+test	391	Sound	19	5189758	0	2			0		other	0
+test	392	Sound	0	5213532	0	2			0		other	0
+test	392	Response	3	5216845	3313	1
+test	394	Nothing	10	5217918	0	1			0		other	0
+test	395	Nothing	22	5237063	0	1			0		other	0
+test	396	Sound	19	5247607	0	2			0		other	0
+test	397	Sound	0	5272647	0	2			0		other	0
+test	397	Response	2	5276763	4116	2
+test	399	Nothing	10	5277835	0	1			0		other	0
+test	400	Nothing	22	5296923	0	1			0		other	0
+test	401	Sound	19	5309749	0	2			0		other	0
+test	401	Response	2	5331241	21492	2
+test	402	Sound	0	5333440	0	2			0		other	0
+test	402	Response	2	5339721	6281	1
+test	404	Nothing	10	5340767	0	1			0		other	0
+test	405	Nothing	22	5359830	0	1			0		other	0
+test	406	Sound	19	5371945	0	2			0		other	0
+test	408	Sound	0	5399201	0	2			0		other	0
+test	408	Response	3	5401959	2758	2
+test	410	Nothing	10	5403035	0	1			0		other	0
+test	411	Nothing	22	5422152	0	1			0		other	0
+test	412	Sound	19	5433920	0	2			0		other	0
+test	413	Sound	0	5459010	0	2			0		other	0
+test	413	Response	2	5464277	5267	2
+test	414	Nothing	22	5464388	0	1			0		other	0
+test	415	Sound	19	5478516	0	2			0		other	0
+test	416	Sound	0	5502665	0	2			0		other	0
+test	416	Response	3	5506116	3451	1
+test	418	Nothing	10	5507163	0	1			0		other	0
+test	419	Nothing	22	5526420	0	1			0		other	0
+test	420	Sound	19	5536642	0	2			0		other	0
+test	421	Sound	0	5560480	0	3			0		other	0
+test	421	Response	2	5566194	5714	1
+test	423	Nothing	10	5567267	0	1			0		other	0
+test	424	Nothing	22	5586360	0	1			0		other	0
+test	425	Sound	19	5601588	0	2			0		other	0
+test	425	Response	3	5623393	21805	1
+test	426	Sound	0	5625659	0	2			0		other	0
+test	426	Response	3	5629872	4213	1
+test	428	Nothing	10	5630949	0	1			0		other	0
+test	429	Nothing	22	5650029	0	1			0		other	0
+test	430	Sound	19	5661135	0	2			0		other	0
+test	432	Sound	0	5683143	0	2			0		other	0
+test	432	Quit		5697312	14169
