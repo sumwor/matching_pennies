@@ -89,6 +89,8 @@ sessionData.lickTimes{2} = time(strcmp(TYPE,'Response') & CODE==RESP.RIGHT);   %
 trialData.start=CODE(CODE==EVENT.WAITLICK );
 trialData.startTimes = time(CODE==EVENT.WAITLICK);
 
+trialData.comChoiceCode=(double(CODE(CODE==EVENT.STARTEXPTLEFT | CODE==EVENT.STARTEXPTRIGHT))-51.5)*2;
+
 %outcomeCodes = cell2mat(struct2cell(OUTCOME)); %outcome-associated codes as vector
 trialData.outcome =  CODE(strcmp(TYPE,'Nothing') & ismember(CODE,outcomeCodes));
 trialData.outcomeTimes = time(strcmp(TYPE,'Nothing') & ismember(CODE,outcomeCodes));
@@ -103,6 +105,35 @@ trialData.nolick = CODE(CODE==EVENT.NOLICK);
 trialData.nolickTimes = time(CODE==EVENT.NOLICK);
 
 trialData.pauseTimes = time(CODE==EVENT.PAUSE);
+
+%for testing
+% trialData.loopstartTimes=time(CODE==EVENT.LOOPSTART);
+% trialData.loopendTimes=time(CODE==EVENT.LOOPEND);
+% trialData.teststartTimes=time(CODE==EVENT.TESTSTART);
+% trialData.testendTimes=time(CODE==EVENT.TESTEND);
+% trialData.countstartTimes=time(CODE==EVENT.COUNTSTART);
+% trialData.countendTimes=time(CODE==EVENT.COUNTEND);
+% trialData.completeTimes=time(CODE==EVENT.COMPLETE);
+% countTime=trialData.countendTimes-trialData.countstartTimes;
+% testTime=trialData.testendTimes-trialData.teststartTimes;
+% count1=zeros(395);
+% count2=zeros(395);
+% count3=zeros(395);
+% count4=zeros(395);
+% test1=zeros(395);
+% test2=zeros(395);
+% test3=zeros(395);
+% test4=zeros(395);
+% for i = 1:395
+%     count1(i)=countTime(4*i-3);
+%     test1(i)=testTime(4*i-3);
+%     count2(i)=countTime(4*i-2);
+%     test2(i)=testTime(4*i-2);
+%     count3(i)=countTime(4*i-1);
+%     test3(i)=testTime(4*i-1);
+%     count4(i)=countTime(4*i);
+%     test4(i)=testTime(4*i);
+% end
 
 respIdx = find(strcmp(TYPE,'Response'));
 respTimes = time(respIdx);
