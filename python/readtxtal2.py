@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import scipy.stats
 
 
-f = open('E:/data/matching_pennies/755/algorithm2/Algo2test_11_8.txt')             # 返回一个文件对象
+f = open('E:/data/matching_pennies/Algo2test_1_18.txt')             # 返回一个文件对象
 t=0
 totalTime=[]
 agentchoice=[]
@@ -142,6 +142,7 @@ def BbaseInd(seq):
     return base
 minPdyn=[0.05,0.05,0.05,0.05,0.05]
 probdyn=[]
+minProb=0.5
 dyncountlist=[0 for x in range(512)]
 dyncountlist1=[0 for x in range(32)]
 leftCountPydyn=[[0 for x in range(5)] for y in range(500)]
@@ -153,11 +154,12 @@ newReward=[]
 for i in range(len(agentchoice)-1):
     maxP=0.05
     probability=0.5
+    minProb=0.5
     if agentchoice[i]!='0':
         newChoice.append(agentchoice[i])
         newReward.append(rewardChoice[i])
     #update dynamic
-    if i>=4:
+    if i>=4 and agentchoice[i]!='0':
        temp=newReward[-5:-1]
        temp+=newChoice[-5:]
        Ind=baseInd(temp)
@@ -173,7 +175,7 @@ for i in range(len(agentchoice)-1):
     
     
     #count
-       
+    if i>=4:
        for j in range(5):
            leftCount=0
            rightCount=0
@@ -227,13 +229,15 @@ for i in range(len(agentchoice)-1):
             
            if pValue < maxP:
                probability = float(rightCount)/totalN
-               maxP=pValue
+               if abs(probability-0.5)>abs(minProb-0.5):
+                   minProb=probability
            pValue1 =scipy.stats.binom_test(rightCount1, totalN1, 0.5, alternative='two-sided')
            if pValue1<maxP:
                probability = float(rightCount1)/totalN1
-               maxP=pValue1
+               if abs(probability-0.5)>abs(minProb-0.5):
+                   minProb=probability
        minPdyn.append(maxP)
-       probdyn.append(probability)
+       probdyn.append(minProb)
 dyncountlist=[0 for x in range(32)]
 leftCountPydyn1=[[0 for x in range(5)] for y in range(500)]
 rightCountPydyn1=[[0 for x in range(5)] for y in range(500)]

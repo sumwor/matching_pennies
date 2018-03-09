@@ -35,6 +35,12 @@ sessionData.dateTime = logData.dateTime;
 TYPE = logData.values{3}; %Intersectional approach necessary, because values 2,3 were reused; 
 CODE = logData.values{4}; %change in future Presentation scripts: with unique codes, only CODE would be needed to parse the logfile...
 
+is_zero=false;
+if CODE(1)==0
+    is_zero=true;
+    CODE=CODE(2:end);  %eliminate the first zero (no idea where it comes from; 12/01/2017) 
+    TYPE=TYPE(2:end); %same thing here
+end
 %sessionData.nTrials = sum(CODE==EVENT.STARTEXPT); %If escaped before last trial, nStartTimes could be > nOutcomes
 
 lastCode=find(CODE==EVENT.NOLICK,1,'last'); %get rid of CODE associated with the last, unfinished trial
@@ -47,11 +53,15 @@ sessionData.outcome = outcomeCodes;
 
 %CODE(strcmp(TYPE,'Nothing') & ismember(CODE,outcomeCodes)) = 10;
 
-sessionData.nTrials = sum(CODE==EVENT.WAITLICK);
+sessionData.nTrials = sum(CODE==EVENT.STARTEXPTLEFT | CODE==EVENT.STARTEXPTRIGHT | CODE==EVENT.STARTEXPT);
 
+%sessionData.nTrials = sum(CODE==EVENT.STARTEXPT);
 
-time_0 = logData.values{5}(find(CODE==EVENT.WAITLICK ,1,'first'));
+time_0 = logData.values{5}(find(CODE==EVENT.STARTEXPTLEFT | CODE==EVENT.STARTEXPTRIGHT | CODE==EVENT.STARTEXPT  ,1,'first'));
 time = logData.values{5}-time_0;   %time starts at first instance of startExpt
+if is_zero
+    time=time(2:end);
+end
 time = double(time)/10000;         %time as double in seconds
 time = time(1:lastCode);
 
@@ -78,6 +88,101 @@ time = time(1:lastCode);
 % CODE(startInd1:endInd1) = [];
 % time(startInd1:endInd1) = [];
 % TYPE(startInd1:endInd1) = [];
+%for 760_FREEWATER_1712051008.log
+% dispose1 = find(time > 1509.4 & time <1550.4);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 761_FREEWATER_1712061042.log
+% dispose1 = find(time > 4934.5 & time <4945.8);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 761_FREEWATER_1712071141.log
+% dispose1 = find(time > 386.51 & time <391.06);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+% dispose1 = find(time > 920.26 & time <928.36);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 761_FREEWATER_1712081057.log
+% dispose1 = find(time > 436.5 & time <440.6);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 760_FREEWATER_1712091000.log
+% dispose1 = find(time >775.86 & time <783.3);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 761_FREEWATER_1712090943.log
+% dispose1 = find(time >510.74 & time <515.9);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+
+%for 760_phase0_noWN_1712101056.log
+% dispose1 = find(time >1184.8 & time <1189.6);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+% dispose1 = find(time >2066.1 & time <2070.7);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+
+%for 760_FREEWATER_1712111121.log
+% dispose1 = find(time >650.7 & time <656.88);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+% dispose1 = find(time >2170.6 & time <2176.4);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 760_FREEWATER_1712131312.log
+% dispose1 = find(time >2215.4 & time <2230.5);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 760_FREEWATER_1712141309.log
+% dispose1 = find(time >4928.3 & time <4941.8);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 760-phase2_MP_1A_lookup20
+% dispose1 = find(time > 3643.8 & time < 3648.2);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 761-phase2_MP_2A.8
+% dispose1 = find(time > 823.2 & time < 830.5);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
+%for 760-phase2_MP_2A9
+% dispose1 = find(time > 77.7 & time < 83.6);
+% startInd1 = dispose1(1); endInd1 = dispose1(end);
+% CODE(startInd1:endInd1) = [];
+% time(startInd1:endInd1) = [];
+% TYPE(startInd1:endInd1) = [];
 
 sessionData.time = time;
 sessionData.event = EVENT;
@@ -86,8 +191,8 @@ sessionData.lickTimes{1} = time(strcmp(TYPE,'Response') & CODE==RESP.LEFT);    %
 sessionData.lickTimes{2} = time(strcmp(TYPE,'Response') & CODE==RESP.RIGHT);   %right licktimes
 
 %TRIAL DATA <<{startTimes, cueTimes, outcomeTimes, cue, response, outcome}>>
-trialData.start=CODE(CODE==EVENT.WAITLICK );
-trialData.startTimes = time(CODE==EVENT.WAITLICK);
+trialData.start=CODE(CODE==EVENT.STARTEXPTLEFT | CODE==EVENT.STARTEXPTRIGHT | CODE==EVENT.STARTEXPT);
+trialData.startTimes = time(CODE==EVENT.STARTEXPTLEFT | CODE==EVENT.STARTEXPTRIGHT | CODE==EVENT.STARTEXPT); 
 
 trialData.comChoiceCode=(double(CODE(CODE==EVENT.STARTEXPTLEFT | CODE==EVENT.STARTEXPTRIGHT))-51.5)*2;
 
@@ -146,7 +251,7 @@ for i = 1:numel(idx)
      %First response post-cue and RT
      temp = find(respTimes>trialData.startTimes(idx(i)),1,'first');
      trialData.response(idx(i)) = CODE(respIdx(temp));
-     trialData.rt(idx(i)) = respTimes(temp)-trialData.startTimes(idx(i));
+     trialData.rt(idx(i)) = respTimes(temp)-trialData.startTimes(idx(i))-0.1; %don't forget the 0.1 s between startexpt and waitlick (the actual start)
 end
 
 %subtract 100ms for interpulse interval on valves; doing so before calculating response data resulted in errors, likely because of uncertainty in presentation timing 

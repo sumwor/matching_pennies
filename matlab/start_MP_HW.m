@@ -10,14 +10,14 @@ clear all;
 %% load data file
 
 %base_dir = 'E:\data\matching_pennies\755\algorithm0\';
-base_dir = 'E:\data\matching_pennies\755\algorithm1\';
+base_dir = 'E:\data\matching_pennies\761\phase2_A2\';
 
 %bandit_setPathList(base_dir);
 
 %data= '/Users/phoenix/Documents/Kwanlab/reinforcement_learning/logfile/human/170511/';
-logfile = '755-phase2_MP_1A_lookup.log';
+logfile = '761-phase2_MP_2A.30.log';
 %logfile = '755-phase2_MP_0A8.log';
-phase = 'algorithm1';
+phase = 'algorithm2';
 %[ dirs, expData ] = expData_reversal_fixedISI(data_dir);
 
 %setup_figprop;  %set up default figure plotting parameters
@@ -50,6 +50,8 @@ switch phase
         plot_MP_A1(sessionData,trialData,savebehfigpath);
     case 'algorithm2'
         plot_MP_A2(sessionData,trialData,savebehfigpath);
+        %fit the reinforcement learning model
+        
 
 end
 %%------following for future data analysis-----
