@@ -18,7 +18,7 @@ function like0=model_altered_MP(xpar, dat, trials)
 %%
 session=204;
 altered_list=trials; %trials that being altered
-alpha_altered=xpar(4); %only alpha_altered for now
+delta1_altered=xpar(4); %only alpha_altered for now
 delta0=xpar(3);
 delta1=xpar(2);
 alpha=xpar(1);
@@ -38,9 +38,9 @@ for k=1:nt
     
     %find the altered trials
     if ismember(k, altered_all)
-        alpha_use=alpha_altered;
+        delta1_use=delta1_altered;
     else
-        alpha_use=alpha;
+        delta1_use=delta1;
     end
     
     pright=exp(v_right)/(exp(v_right)+exp(v_left));
@@ -57,17 +57,17 @@ for k=1:nt
     
     if dat(k,1)==1      % update action value, choose right
         if dat(k,2)==1
-            v_right=alpha_use*v_right+delta1;
+            v_right=alpha*v_right+delta1_use;
         else
-            v_right=alpha_use*v_right+delta0;
+            v_right=alpha*v_right+delta0;
         end
-        v_left=alpha_use*v_left;
+        v_left=alpha*v_left;
     else
         if dat(k,2)==1
-            v_left=alpha_use*v_left+delta1;
+            v_left=alpha*v_left+delta1_use;
         else
-            v_left=alpha_use*v_left+delta0;
+            v_left=alpha*v_left+delta0;
         end
-        v_right=alpha_use*v_right;
+        v_right=alpha*v_right;
     end;    
 end;

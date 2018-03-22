@@ -35,7 +35,7 @@ incorrectCode=[110, 101];
 %'/Users/phoenix/Documents/Kwanlab/reinforcement_learning/logfile/human/170511/';\
 cd(base_dir1);
 logfiles = dir('*.log');
-c_all1=[];r_all1=[];
+c_all1=[];r_all1=[]; com_all1=[];
 num_session1=[];
 num_session2=[];
 %get concatenated choice and reward history
@@ -48,20 +48,22 @@ for i =1:length(logfiles)
         if c(i)~=0
           c(i)=(c(i)-2.5)*2;
         end
+        
     end
     r=trialData.outcome;
+    com=trialData.comChoiceCode;
     n_missed=sum(r==77);
     r(~ismember(r, rewardCode))=0;
     r(ismember(r, rewardCode))=1;
     num_session1=[num_session1, length(c(c~=0))];
     %concatenate
-    c_all1=[c_all1;c]; r_all1=[r_all1;r];
+    c_all1=[c_all1;c]; r_all1=[r_all1;r]; com_all1=[com_all1;com];
     
 end
 
 cd(base_dir2);
 logfiles = dir('*.log');
-c_all2=[];r_all2=[];
+c_all2=[];r_all2=[]; com_all2=[];
 
 %get concatenated choice and reward history
 for i =1:length(logfiles)
@@ -75,12 +77,13 @@ for i =1:length(logfiles)
         end
     end
     r=trialData.outcome;
+    com=trialData.comChoiceCode;
     n_missed=sum(r==77);
     r(~ismember(r, rewardCode))=0;
     r(ismember(r, rewardCode))=1;
     num_session2=[num_session2, length(c(c~=0))];
     %concatenate
-    c_all2=[c_all2;c]; r_all2=[r_all2;r];
+    c_all2=[c_all2;c]; r_all2=[r_all2;r]; com_all2=[com_all2; com];
     
 end
 
@@ -88,9 +91,11 @@ end
 %exclude the missed trials
 c_nomiss1=c_all1(c_all1~=0);
 r_nomiss1=r_all1(c_all1~=0);
+com_nomiss1=com_all1(c_all1~=0);
 
 c_nomiss2=c_all2(c_all2~=0);
 r_nomiss2=r_all2(c_all2~=0);
+com_nomiss2=com_all2(c_all2~=0);
 
 block=200;
 len1=length(c_nomiss1);
@@ -360,6 +365,160 @@ xlabel('Trial'); ylabel('Entropy (bits)');
 title('Entropy of 3 choices and 2 rewards');
 print(gcf, '-r0', [savebehfigpath sessionData.subject{1}, '_entropy_5'], '-dpng'); %png format
 saveas(gcf, [savebehfigpath sessionData.subject{1}, '_entropy_5'], 'fig'); %fig format
+
+%find mutual information
+MI1=zeros(1, floor(len1/block));
+MI2=zeros(1, floor(len2/block));
+com_nomiss1(com_nomiss1==-1)=0;
+com_nomiss2(com_nomiss2==-1)=0;
+for i=1:length(MI1)
+    choiceList=zeros(1,64);
+    rewardList=zeros(1,2);
+    C_RList=zeros(1,64,2);
+    %for k =1:floor(block/3)
+    for k=(i-1)*block+1:i*block
+        %cPattern=[c_nomiss1(3*k+block*(i-1)-2:3*k+block*(i-1)); com_nomiss1(3*k+block*(i-1)-2:3*k+block*(i-1))];
+        cPattern=[c_nomiss1(k:k+2);com_nomiss1(k:k+2)];
+        ind=bin2dec(num2str(cPattern'))+1;
+        choiceList(ind)=choiceList(ind)+1;
+        if r_nomiss1(k+3)==1
+            rewardList(1)=rewardList(1)+1;
+            C_RList(1,ind, 1)=C_RList(1,ind,1)+1;
+        else
+            rewardList(2)=rewardList(2)+1;
+            C_RList(1,ind, 2)=C_RList(1,ind,2)+1;
+        end
+    end
+    %calculate the mutual information
+    MI_sum=0;
+    p1=rewardList(1)/sum(rewardList);
+    p2=rewardList(2)/sum(rewardList);
+    for h=1:64
+        p_j=choiceList(h)/sum(choiceList);
+        p_1j=C_RList(1,h, 1)/sum(sum(C_RList));
+        p_2j=C_RList(1,h,2)/sum(sum(C_RList));
+        if p_1j==0
+            p_1j=realmin;
+        end
+        if p_2j==0
+            p_2j=realmin;
+        end
+        if p_j==0
+            p_j=realmin;
+        end
+%         if p_1j==0
+%             warning('certain patterns did not occur, zero probability generated');
+%            p_whole1=realmin;
+%         end
+%         if p_2j==0
+%             warning('certain patterns did not occur, zero probability generated');
+%            p_whole2=realmin;
+%         end
+%         if (p_1j~=0 && p_j==0)
+%         warning('certain patterns did not occur, zero probability generated');
+%            p_j=realmin;
+%            p_whole1=p_1j/(p_j*p1);
+%         end
+%         if (p_2j~=0 && p_j==0)
+%         warning('certain patterns did not occur, zero probability generated');
+%            p_j=realmin;
+%            p_whole2=p_2j/(p_j*p2);
+%         end
+%         if (p_1j~=0 && p_j~=0)
+%             p_whole1=p_1j/(p_j*p1);
+%         end
+%         if (p_2j~=0 && p_j~=0)
+%             p_whole2=p_2j/(p_j*p2);
+%         end
+        MI=p_1j*log2(p_1j/(p_j*p1))+p_2j*log2(p_2j/(p_j*p2));
+        %MI=p_1j*log2(p_whole1)+p_2j*log2(p_whole2);
+        MI_sum=MI_sum+MI;
+    end
+    MI_sum=MI_sum-63/(1.3863*block);
+    MI1(i)=MI_sum;
+end
+for i=1:length(MI2)
+    choiceList=zeros(1,64);
+    rewardList=zeros(1,2);
+    C_RList=zeros(1,64,2);
+    %for k =1:floor(block/3)
+    for k=(i-1)*block+1:i*block
+        %cPattern=[c_nomiss2(3*k+block*(i-1)-2:3*k+block*(i-1)); com_nomiss2(3*k+block*(i-1)-2:3*k+block*(i-1))];
+        cPattern=[c_nomiss2(k:k+2);com_nomiss2(k:k+2)];
+        ind=bin2dec(num2str(cPattern'))+1;
+        choiceList(ind)=choiceList(ind)+1;
+        if r_nomiss2(k+3)==1
+            rewardList(1)=rewardList(1)+1;
+            C_RList(1,ind, 1)=C_RList(1,ind,1)+1;
+        else
+            rewardList(2)=rewardList(2)+1;
+            C_RList(1,ind, 2)=C_RList(1,ind,2)+1;
+        end
+    end
+    %calculate the mutual information
+    MI_sum=0;
+    p1=rewardList(1)/sum(rewardList);
+    p2=rewardList(2)/sum(rewardList);
+    for h=1:64
+        p_j=choiceList(h)/sum(choiceList);
+        p_1j=C_RList(1,h, 1)/sum(sum(C_RList));
+        p_2j=C_RList(1,h,2)/sum(sum(C_RList));
+        if p_1j==0
+            p_1j=realmin;
+        end
+        if p_2j==0
+            p_2j=realmin;
+        end
+        if p_j==0
+            p_j=realmin;
+        end
+        
+%         if p_1j==0
+%             warning('certain patterns did not occur, zero probability generated');
+%            p_whole1=realmin;
+%         end
+%         if p_2j==0
+%             warning('certain patterns did not occur, zero probability generated');
+%            p_whole2=realmin;
+%         end
+%         if (p_1j~=0 && p_j==0)
+%         warning('certain patterns did not occur, zero probability generated');
+%            p_j=realmin;
+%            p_whole1=p_1j/(p_j*p1);
+%         end
+%         if (p_2j~=0 && p_j==0)
+%         warning('certain patterns did not occur, zero probability generated');
+%            p_j=realmin;
+%            p_whole2=p_2j/(p_j*p2);
+%         end
+%         if (p_1j~=0 && p_j~=0)
+%             p_whole1=p_1j/(p_j*p1);
+%         end
+%         if (p_2j~=0 && p_j~=0)
+%             p_whole2=p_2j/(p_j*p2);
+%         end
+        %MI=p_1j*log2(p_whole1)+p_2j*log2(p_whole2);
+        MI=p_1j*log2(p_1j/(p_j*p1))+p_2j*log2(p_2j/(p_j*p2));
+        MI_sum=MI_sum+MI;
+        
+    end
+    MI_sum=MI_sum-63/(1.3863*block);
+    MI2(i)=MI_sum;
+end
+
+MItotal=[MI1,MI2];
+
+figure;
+scatter(x_axis,MItotal,sz,'k','filled');
+hold on;plot([0 x_axis(end)], [0,0],'k--','Linewidth',1);
+ylim([-0.2 0.8]);
+hold on;plot([transit_point transit_point],[-0.2 0.8], 'k-','LineWidth',1);
+%hold on;plot([0 x_axis(end)], [3,3],'k--','Linewidth',1);
+%ylim([0 4]);
+xlabel('Trial'); ylabel('Mutual information (bits)');
+title('Mutual information');
+print(gcf, '-r0', [savebehfigpath sessionData.subject{1}, '_mutualinfo'], '-dpng'); %png format
+saveas(gcf, [savebehfigpath sessionData.subject{1}, '_mutualinfo'], 'fig'); %fig format
 
 %significance test
 %probability right
