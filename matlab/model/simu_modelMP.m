@@ -16,7 +16,7 @@ numSession=N/alteredTrial;
 
 bet=1; %for the inverse temperature (not needed in Daeyeol's model)
 
-valueL=0; valueR=0;
+
 %store the simulation results
 c_simu=zeros(1, trialPerSession*numSession);
 r_simu=zeros(1, trialPerSession*numSession);
@@ -25,6 +25,7 @@ comprob_simu=zeros(1, trialPerSession*numSession);
 altered_tList=zeros(4, numSession); %keep track on the trial number
 
 for i=1:numSession
+    valueL=0; valueR=0; %renew the value every session
     choiceHis=[];
     rewardHis=[];
     altered_trials=randsample(trialPerSession, 4);
