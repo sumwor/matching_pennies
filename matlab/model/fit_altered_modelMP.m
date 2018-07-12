@@ -1,4 +1,4 @@
-function [ans, exitflag]=fit_altered_modelMP(c,r, trials, init)    
+function [ans, exitflag]=fit_altered_modelMP(c,r, trials, init,index)    
 % % fit_modelMP %
 %PURPOSE:   Fit the choice behavior to a reinforcement learning model using maximum
 %           likelihood estimate
@@ -43,7 +43,7 @@ opt=optimset('GradObj', 'off',...
               'Algorithm','trust-region-reflective');
 %starting values
 initpar=init;
-[xval,fval,flag,out,grad,hess] = fminunc( @(x)model_altered_MP(x, [c r], trials), initpar, opt);
+[xval,fval,flag,out,grad,hess] = fminunc( @(x)model_altered_MP(x, [c r], trials, index), initpar, opt);
 se = sqrt(diag(inv(hess)));
 %in this way we can get an error bar, that's much better
 ans = [xval' se];

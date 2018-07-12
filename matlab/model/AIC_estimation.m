@@ -19,6 +19,7 @@ like0_random=length(data(:,1))*log(0.5);
 AIC2=2*0-2*like0_random;
 
 %for win-stay-lose-switch
-like0_WSLS=model_WSLS(data);
+like0_WSLS=model_WSLS(data); %for deterministic model, AIC is given by
+%AIC=nln(RSS/n)+2k
 AIC3=2*0+2*like0_WSLS;
 

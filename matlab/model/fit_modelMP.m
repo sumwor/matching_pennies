@@ -17,7 +17,6 @@ maxeval=1e6;
 op=optimset('fminsearch');
 op.MaxIter=maxit;
 op.MaxFunEvals=maxeval;
-initpar=[0 0 0]; % initial [alpha delta1, delta0]
 
 r=r(c~=0);  %remove miss trials
 c=c(c~=0);
@@ -42,7 +41,7 @@ opt=optimset('GradObj', 'off',...
               'Diagnostics','off',...
               'Algorithm','trust-region-reflective');
 %starting values
-initpar=[0, 0, 0];
+initpar=[0.5, 0.5, 0.5];%alpha, delta1, delta0, beta
 [xval,fval,flag,out,grad,hess] = fminunc( @(x)model_MP(x, [c r]), initpar, opt);
 se = sqrt(diag(inv(hess)));
 %in this way we can get an error bar, that's much better

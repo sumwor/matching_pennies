@@ -10,14 +10,14 @@ clear all;
 %% load data file
 
 %base_dir = 'E:\data\matching_pennies\755\algorithm0\';
-base_dir = 'E:\data\matching_pennies\761\phase2_A2\';
+base_dir = 'E:\data\matching_pennies\771\phase1\';
 
 %bandit_setPathList(base_dir);
 
 %data= '/Users/phoenix/Documents/Kwanlab/reinforcement_learning/logfile/human/170511/';
-logfile = '761-phase2_MP_2A.30.log';
+logfile = '771_FREEWATER_1807021333.log';
 %logfile = '755-phase2_MP_0A8.log';
-phase = 'algorithm2';
+phase = 'phase1';
 %[ dirs, expData ] = expData_reversal_fixedISI(data_dir);
 
 %setup_figprop;  %set up default figure plotting parameters

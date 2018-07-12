@@ -249,7 +249,7 @@ trialData.rt = nan(sessionData.nTrials,1);                    %Time of the first
 idx = find(trialData.outcome~=OUTCOME.MISS); %Idx all non-miss trials
 for i = 1:numel(idx)
      %First response post-cue and RT
-     temp = find(respTimes>trialData.startTimes(idx(i)),1,'first');
+     temp = find(respTimes>(trialData.startTimes(idx(i))+0.1),1,'first');
      trialData.response(idx(i)) = CODE(respIdx(temp));
      trialData.rt(idx(i)) = respTimes(temp)-trialData.startTimes(idx(i))-0.1; %don't forget the 0.1 s between startexpt and waitlick (the actual start)
 end

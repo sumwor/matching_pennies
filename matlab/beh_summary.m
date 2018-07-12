@@ -373,7 +373,7 @@ com_nomiss1(com_nomiss1==-1)=0;
 com_nomiss2(com_nomiss2==-1)=0;
 for i=1:length(MI1)
     choiceList=zeros(1,64);
-    rewardList=zeros(1,2);
+    cList=zeros(1,2);
     C_RList=zeros(1,64,2);
     %for k =1:floor(block/3)
     for k=(i-1)*block+1:i*block
@@ -381,18 +381,18 @@ for i=1:length(MI1)
         cPattern=[c_nomiss1(k:k+2);com_nomiss1(k:k+2)];
         ind=bin2dec(num2str(cPattern'))+1;
         choiceList(ind)=choiceList(ind)+1;
-        if r_nomiss1(k+3)==1
-            rewardList(1)=rewardList(1)+1;
+        if c_nomiss1(k+3)==1
+            cList(1)=cList(1)+1;
             C_RList(1,ind, 1)=C_RList(1,ind,1)+1;
         else
-            rewardList(2)=rewardList(2)+1;
+            cList(2)=cList(2)+1;
             C_RList(1,ind, 2)=C_RList(1,ind,2)+1;
         end
     end
     %calculate the mutual information
     MI_sum=0;
-    p1=rewardList(1)/sum(rewardList);
-    p2=rewardList(2)/sum(rewardList);
+    p1=cList(1)/sum(cList);
+    p2=cList(2)/sum(cList);
     for h=1:64
         p_j=choiceList(h)/sum(choiceList);
         p_1j=C_RList(1,h, 1)/sum(sum(C_RList));
@@ -434,12 +434,12 @@ for i=1:length(MI1)
         %MI=p_1j*log2(p_whole1)+p_2j*log2(p_whole2);
         MI_sum=MI_sum+MI;
     end
-    MI_sum=MI_sum-63/(1.3863*block);
-    MI1(i)=MI_sum;
+    MI_sum1=MI_sum%-63/(1.3863*block);
+    MI1(i)=MI_sum1;
 end
 for i=1:length(MI2)
     choiceList=zeros(1,64);
-    rewardList=zeros(1,2);
+    cList=zeros(1,2);
     C_RList=zeros(1,64,2);
     %for k =1:floor(block/3)
     for k=(i-1)*block+1:i*block
@@ -447,18 +447,18 @@ for i=1:length(MI2)
         cPattern=[c_nomiss2(k:k+2);com_nomiss2(k:k+2)];
         ind=bin2dec(num2str(cPattern'))+1;
         choiceList(ind)=choiceList(ind)+1;
-        if r_nomiss2(k+3)==1
-            rewardList(1)=rewardList(1)+1;
+        if c_nomiss2(k+3)==1
+            cList(1)=cList(1)+1;
             C_RList(1,ind, 1)=C_RList(1,ind,1)+1;
         else
-            rewardList(2)=rewardList(2)+1;
+            cList(2)=cList(2)+1;
             C_RList(1,ind, 2)=C_RList(1,ind,2)+1;
         end
     end
     %calculate the mutual information
     MI_sum=0;
-    p1=rewardList(1)/sum(rewardList);
-    p2=rewardList(2)/sum(rewardList);
+    p1=cList(1)/sum(cList);
+    p2=cList(2)/sum(cList);
     for h=1:64
         p_j=choiceList(h)/sum(choiceList);
         p_1j=C_RList(1,h, 1)/sum(sum(C_RList));
@@ -502,8 +502,8 @@ for i=1:length(MI2)
         MI_sum=MI_sum+MI;
         
     end
-    MI_sum=MI_sum-63/(1.3863*block);
-    MI2(i)=MI_sum;
+    MI_sum1=MI_sum%-63/(1.3863*block);
+    MI2(i)=MI_sum1;
 end
 
 MItotal=[MI1,MI2];

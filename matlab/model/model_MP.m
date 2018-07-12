@@ -14,6 +14,7 @@ function like0=model_MP(xpar, dat)
 %   like0:      the log-likelihood
 
 %%
+%beta=xpar(4);
 delta0=xpar(3);
 delta1=xpar(2);
 alpha=xpar(1);
