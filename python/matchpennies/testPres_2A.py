@@ -11,6 +11,7 @@ Created on Wed Aug 30 15:56:47 2017
 
 @author: Hongli Wang
 """
+import matplotlib.pyplot as plt
 
 def factorial(n):
     if n==0:
@@ -110,49 +111,69 @@ def choice_counting(choiceHistory, rewardHistory, num):
 
     return leftCount, rightCount
 
+agentProb = []
+agentReward = []
+agentChoice = []
 
-fpath='C:/Users/Hongli Wang/Documents/PythonScripts/matchpennies/test/Algo2test1.txt'
+fpath='E:\labcode\matching_penniess\python\matchpennies\\test\Algo2_baisedtest_12_10.txt'
 
 f=open(fpath)
+t = 0
+x = 0
+for line in f:
+    # print line,                 # 后面跟 ',' 将忽略换行符
+    # print(line, end = '')　　　# 在 Python 3中使用
+    if x < 100:
+        if t != 0:
 
+            l = line.split('\t')
 
-line=[]
+            print(l)
+            if t % 5 == 1:
+                agentChoice.append(l[0])
+                agentReward.append(l[2])
+                agentProb.append(l[3])
+                x += 1
+            # totalTime.append(l[4])
+            # elif t % 5 == 2:
+            #    leftChoice[x][:] = l
+            #    x += 1
+            # elif t % 5 == 0:
+            #    rightChoice[y][:] = l
+            #    y += 1
+        t += 1
+    else:
+        break
 
-for ll in f:
-    line.append(ll)
-    
+f.close()
 
-agentChoice=[]
-agentReward=[]
-
-for x in line[1:]:
-    
-    agentChoice.append((float(x[0])))
-    agentReward.append((float(x[4])))
 agent=[]
 reward=[]
 
 pValueMat= [[0 for col in range(400)] for row in range(5)]
 
-probMat=[0]*40
+probMat=[0]*100
 
-pValueMat= [[0 for col in range(40)] for row in range(5)]
+pValueMat= [[0 for col in range(100)] for row in range(5)]
 
-for i in range(40):
+for i in range(100):
     agent.append(agentChoice[i])
     reward.append(agentReward[i])
     if i<=4:
-        probMat[i]=0.5
+        probMat[i]=0.67
     else:
         maxP=0.05
-        prob=0.5
+        prob=0.67
         for j in range(5):
             left, right=choice_counting(agent,reward,j)
             totalN=left+right
-            pValue=binomial_test(right,totalN,0.5)
+            pValue=binomial_test(left,totalN,0.67)
             pValueMat[j][i]=pValue
             if pValue<maxP:
-                prob=float(right)/totalN
+                prob=float(left)/totalN
                 maxP=pValue
         probMat[i]=prob
         
+plt.plot(agentProb)
+plt.plot(probMat)
+plt.show()

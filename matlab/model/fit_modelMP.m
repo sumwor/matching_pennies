@@ -18,8 +18,8 @@ op=optimset('fminsearch');
 op.MaxIter=maxit;
 op.MaxFunEvals=maxeval;
 
-r=r(c~=0);  %remove miss trials
-c=c(c~=0);
+% r=r(c~=0);  %remove miss trials
+% c=c(c~=0);
 
 %[qpar like exitflag output]=fminsearch(@model_MP, initpar, [], [c r]);
 %try global search

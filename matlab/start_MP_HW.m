@@ -9,15 +9,15 @@ clear all;
 
 %% load data file
 
-%base_dir = 'E:\data\matching_pennies\755\algorithm0\';
-base_dir = 'E:\data\matching_pennies\771\phase1\';
+base_dir = 'E:\data\matching_pennies\biased_MP\';
+%base_dir = 'E:\data\bandit_logfile\752\bandit_new\data\';
 
 %bandit_setPathList(base_dir);
 
 %data= '/Users/phoenix/Documents/Kwanlab/reinforcement_learning/logfile/human/170511/';
-logfile = '771_FREEWATER_1807021333.log';
+logfile = '875-phase2_MPBiased_2A.log';
 %logfile = '755-phase2_MP_0A8.log';
-phase = 'phase1';
+phase = 'algorithm2_biased';
 %[ dirs, expData ] = expData_reversal_fixedISI(data_dir);
 
 %setup_figprop;  %set up default figure plotting parameters
@@ -51,7 +51,8 @@ switch phase
     case 'algorithm2'
         plot_MP_A2(sessionData,trialData,savebehfigpath);
         %fit the reinforcement learning model
-        
+    case 'algorithm2_biased'
+        plot_MP_A2_biased(sessionData, trialData, savebehfigpath);
 
 end
 %%------following for future data analysis-----
